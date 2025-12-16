@@ -1,7 +1,6 @@
 import pandas as pd
 from database.connection import get_connection
 
-
 class Envio:
     def __init__(self, nombre: str, tipo_trailer: str, ubi_origen: str, ubi_destino: str, trasportista: str):
         self.trasportista = trasportista
@@ -9,6 +8,7 @@ class Envio:
         self.tipo_trailer = tipo_trailer
         self.ubi_origen = ubi_origen
         self.ubi_destino = ubi_destino
+        self.trasportista = trasportista
 
 
 def grabar_envio(envio: Envio):
@@ -242,7 +242,6 @@ def get_estados_desplegable():
 
 
 def get_historial_envio(id_envio):
-    """Obtiene el historial de un envío."""
     conn = get_connection()
     cursor = conn.cursor()
 
@@ -303,3 +302,25 @@ def exportar_df(columnas, lista, ruta):
     df = pd.DataFrame(columns=columnas, data=lista)
     print(df)
     df.to_excel(ruta, sheet_name="Envios", index=False)
+
+def envios_to_dict(lista):
+    lista_dict = []
+    for envio in lista:
+        diccionario = {"id":envio[0],
+                   "nombre":envio[1],
+                   "tipo_trailer":envio[2],
+                   "id_ubicacion_origen":envio[3],
+                   "ubicacion_origen":envio[4],
+                   "id_ubicacion_destino":envio[5],
+                   "ubicacion_destino":envio[6],
+                   "fecha_alta":envio[7],
+                   "fecha_baja":envio[8],
+                   "estado":envio[9],
+                   "empresa":envio[10],
+                   "tarifa":envio[11],
+                  "coste_total":envio[12]
+                   }
+        lista_dict.append(diccionario)
+    return lista_dict
+
+

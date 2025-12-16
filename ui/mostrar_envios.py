@@ -141,6 +141,7 @@ class VentanaMostrarEnvios(QWidget):
     # LÓGICA PRINCIPAL
     # ------------------------------------------------------------------
     def cargar_datos(self):
+        #Se ha modificado el import de datetime a from datetime import datetime, tener en cuenta por si rompe
         fecha_desde = datetime.datetime.combine(self.textFechaDesde.date().toPyDate(), datetime.time(0, 0, 0))
         fecha_hasta = datetime.datetime.combine(self.textFechaHasta.date().toPyDate(), datetime.time(23, 59, 59))
 

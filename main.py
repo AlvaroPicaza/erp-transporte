@@ -5,6 +5,10 @@ from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QFontDatabase, QPixmap
 from qt_material import apply_stylesheet
 import sys
+from database.connection import get_connection
+from app.models.envios import envios_to_dict, grabar_envio
+
+
 
 class AppLoader:
     def __init__(self):
