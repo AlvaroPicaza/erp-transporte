@@ -26,3 +26,7 @@ Se puede montar una mini demo con la bbdd en database/schema.sql y la carga de d
   Tipos de tráiler
   Moneda
   Cálculos automáticos vinculados al envío
+
+Este proyecto incluye una API REST desarrollada con FastAPI, Pydantic para la validación de datos y Uvicorn como servidor ASGI, que expone parte de la funcionalidad del ERP de Transporte, permitiendo interactuar con el sistema mediante peticiones HTTP.
+
+La API está pensada como una capa de acceso a los datos del ERP, facilitando futuras integraciones con aplicaciones web, móviles o sistemas externos.
