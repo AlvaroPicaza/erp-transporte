@@ -325,3 +325,40 @@ def get_tarifas(ubicacion_origen=None, ubicacion_destino=None):
     cursor.close()
     conn.close()
     return tarifas
+
+def empresas_to_dict(empresas):
+    lista = []
+    for empresa in empresas:
+        diccionario ={
+            "id_empresa":empresa[0],
+            "razon_social":empresa[1],
+            "direccion":empresa[2],
+            "id_pais":empresa[3],
+            "idioma":empresa[4],
+            "fecha_alta":empresa[5],
+            "usuario_alta":empresa[6],
+            "fecha_modificacion":empresa[7],
+            "usuario_modificacion":empresa[8],
+            "fecha_baja":empresa[9],
+            "usuario_baja":empresa[10]
+        }
+        lista.append(diccionario)
+    return lista
+
+def tarifas_to_dict(tarifas):
+    lista = []
+    for tarifa in tarifas:
+        diccionario ={
+            "id_tarifa":tarifa[0],
+            "zona_origen":tarifa[1],
+            "zona_destino":tarifa[2],
+            "tipo_trailer":tarifa[3],
+            "precio_base":tarifa[4],
+            "precio_por_km":tarifa[5],
+            "precio_por_kg":tarifa[6],
+            "moneda":tarifa[7],
+            "fecha_alta":tarifa[8],
+            "fecha_baja":tarifa[9]
+        }
+        lista.append(diccionario)
+    return lista
